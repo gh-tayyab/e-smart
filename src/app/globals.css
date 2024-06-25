@@ -31,3 +31,32 @@ body {
     text-wrap: balance;
   }
 }
+
+
+.slick-dots {
+  bottom: -30px; /* Adjust this value as needed */
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+}
+
+.slick-dots li {
+  margin: 0 5px; /* Adjust spacing between dots */
+}
+
+.slick-dots li button:before {
+  font-size: 12px; /* Adjust dot size */
+  color: white; /* Adjust dot color */
+}
+
+.slick-dots li.slick-active button:before {
+  color: orange; /* Adjust active dot color */
+}
+
+.slick-dots-custom {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: white;
+}
+
