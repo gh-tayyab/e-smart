@@ -30,7 +30,7 @@ const PaymentForm = () => {
   const { data: session } = useSession();
   const handleCheckout = async () => {
     const stripe = await stripePromise;
-    const response = await fetch("http://e-smartstore.vercel.app/api/checkout", {
+    const response = await fetch("https://e-smartstore.vercel.app/api/checkout", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
