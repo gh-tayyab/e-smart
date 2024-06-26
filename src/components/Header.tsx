@@ -128,7 +128,7 @@ const Header = () => {
             className="headerDiv px-2 gap-x-1 cursor-pointer"
             >
             <FiLogOut className="text-2xl" />
-            <p className="text-sm font-semibold">Logout</p>
+            <p className="hidden md:inline text-sm font-semibold">Logout</p>
           </div>
         )}
         </div>
