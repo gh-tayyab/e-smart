@@ -15,14 +15,12 @@ import { addUser, deleteUser } from "@/redux/shoppingSlice";
 import { BsBookmarks } from "react-icons/bs";
 import { usePathname } from "next/navigation";
 
-
 const links = [
   { name: "Home", href: "/" },
   { name: "About", href: "/about" },
   { name: "Reviews", href: "/reviews" },
   { name: "Carts", href: "/cart" },
 ];
-
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -81,56 +79,55 @@ const Header = () => {
           ))}
         </nav>
         <div className="flex items-center gap-4">
-
-        {/* Login/Register */}
-        {!session && (
-          <div onClick={() => signIn()} className="headerDiv cursor-pointer">
-            <AiOutlineUser className="text-2xl" />
-            <p className="text-sm font-semibold">Login/Register</p>
-          </div>
-        )}
-        {/* Cart button */}
-        <Link href={"/cart"}>
-          <div className="bg-black hover:bg-slate-950 rounded-full text-slate-100 hover:text-white flex items-center justify-center gap-x-1 px-3 py-1.5 border-[1px] border-black hover:border-orange-600 duration-200 relative">
-            <IoMdCart className="text-xl" />
-            <p className="text-sm font-semibold">
-              <FormattedPrice amount={totalAmt ? totalAmt : 0} />
-            </p>
-            <span className="bg-white text-orange-600 rounded-full text-xs font-semibold absolute -right-2 -top-1 w-5 h-5 flex items-center justify-center shadow-xl shadow-black">
-              {productData ? productData?.length : 0}
-            </span>
-          </div>
-        </Link>
-        {/* user Image */}
-        {session && (
-          <Image
-            src={session?.user?.image as string}
-            alt="user image"
-            width={50}
-            height={50}
-            className="rounded-full object-cover"
+          {/* Login/Register */}
+          {!session && (
+            <div onClick={() => signIn()} className="headerDiv cursor-pointer">
+              <AiOutlineUser className="text-2xl" />
+              <p className="text-sm font-semibold">Login/Register</p>
+            </div>
+          )}
+          {/* Cart button */}
+          <Link href={"/cart"}>
+            <div className="bg-black hover:bg-slate-950 rounded-full text-slate-100 hover:text-white flex items-center justify-center gap-x-1 px-3 py-1.5 border-[1px] border-black hover:border-orange-600 duration-200 relative">
+              <IoMdCart className="text-xl" />
+              <p className="hidden md:inline text-sm font-semibold">
+                <FormattedPrice amount={totalAmt ? totalAmt : 0} />
+              </p>
+              <span className="bg-white text-orange-600 rounded-full text-xs font-semibold absolute -right-2 -top-1 w-5 h-5 flex items-center justify-center shadow-xl shadow-black">
+                {productData ? productData?.length : 0}
+              </span>
+            </div>
+          </Link>
+          {/* user Image */}
+          {session && (
+            <Image
+              src={session?.user?.image as string}
+              alt="user image"
+              width={50}
+              height={50}
+              className="rounded-full object-cover"
             />
           )}
-        {/* Order button */}
-        {orderData?.order?.length > 0 && session && (
-          <Link
-            href={"/order"}
-            className="headerDiv px-2 gap-x-1 cursor-pointer"
-          >
-            <BsBookmarks className="text-2xl" />
-            <p className="text-sm font-semibold">Orders</p>
-          </Link>
-        )}
-        {/* Logout button */}
-        {session && (
-          <div
-            onClick={() => signOut()}
-            className="headerDiv px-2 gap-x-1 cursor-pointer"
+          {/* Order button */}
+          {orderData?.order?.length > 0 && session && (
+            <Link
+              href={"/order"}
+              className="headerDiv px-2 gap-x-1 cursor-pointer"
             >
-            <FiLogOut className="text-2xl" />
-            <p className="hidden md:inline text-sm font-semibold">Logout</p>
-          </div>
-        )}
+              <BsBookmarks className="text-2xl" />
+              <p className="text-sm font-semibold">Orders</p>
+            </Link>
+          )}
+          {/* Logout button */}
+          {session && (
+            <div
+              onClick={() => signOut()}
+              className="headerDiv px-2 gap-x-1 cursor-pointer"
+            >
+              <FiLogOut className="text-2xl" />
+              <p className="hidden md:inline text-sm font-semibold">Logout</p>
+            </div>
+          )}
         </div>
       </Container>
     </div>
