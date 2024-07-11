@@ -115,7 +115,7 @@ const Header = () => {
               className="headerDiv px-2 gap-x-1 cursor-pointer"
             >
               <BsBookmarks className="text-2xl" />
-              <p className="text-sm font-semibold">Orders</p>
+              <p className="hidden md:inline text-sm font-semibold">Orders</p>
             </Link>
           )}
           {/* Logout button */}
